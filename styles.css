@@ -1,0 +1,23 @@
+﻿body {
+background-image: url(images/bg2.jpg);
+background-size: cover;
+background-attachment: fixed;
+}
+
+.jumbotron {
+    background-color: #54aaff;
+}
+
+.jumbotron p {
+    color: white;
+    font-size: larger;
+    
+}
+
+
+
+.display-4 {
+    font-family: "Alegreya SC";
+    color: white;
+    font-size: 100px;
+}
