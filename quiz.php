@@ -14,7 +14,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
      <!--css stylesheet-->
-     <link rel="stylesheet" type="text/css" href="styles2.css">
+     <link rel="stylesheet" type="text/css" href="Css/styles2.css">
 	<!--google fonts-->
 	<link href='https://fonts.googleapis.com/css?family=Alegreya' rel='stylesheet'>
     </head>
@@ -22,7 +22,7 @@
 
     <div class="jumbotron jumbotron-fluid ">
       <div class="container text-center">
-        <h1 class="display-4"> Basic sports questions</h1>
+        <h1 class="display-4"> Basic Sports Questions</h1>
         <p class="lead">How much do you know about sports?</p>
       </div>
     </div>
@@ -241,34 +241,31 @@
                 if (isset($_POST['answers'])) {
                     $Answers = $_POST['answers']; // Get submitted answers.
                     //  checking! Questions;)
-                    $counter = 0;
+                    $count = 0;
                     echo "<h1>quiz results </h1>";
                     foreach($Questions as $QuestionNo => $Value) {
                         // Echo the question
                         echo $Value['Question'].'<br>';
                         if ($Answers[$QuestionNo] != $Value['CorrectAnswer']) {
-                           
-                            echo 'You answered: <span style="color: red;text-decoration:line-through; font-size: 1rem;">'.$Value['Answers'][$Answers[$QuestionNo]].'</span><br>'; // Replace style with a class
-                            echo 'Correct answer: <span style="color: green;">'.$Value['Answers'][$Value['CorrectAnswer']].'</span>';
+
+                            echo 'Incorrect(Correct Selection): <span style="color: red;">'.$Value['Answers'][$Value['CorrectAnswer']].'</span>';
                         } 
                         else {
-                            
-                            echo 'You answered: <span style="color:  blue; font-size: 1rem;">'.$Value['Answers'][$Answers[$QuestionNo]].'</span><br>'; // Replace style with a class
-                            echo 'You are correct: <span style="color: green;">'.$Value['Answers'][$Answers[$QuestionNo]].'</span>';
-                            $counter++;
+                            echo 'Well Done: <span style="color: blue;">'.$Value['Answers'][$Answers[$QuestionNo]].'</span>';
+                            $count++;
                         }
                         echo '<br /><hr>';
                     }
-                    if ($counter < 10) {
-                        echo "<h1>Results : $counter/20</h1>";
+                    if ($count < 10) {
+                        echo "<h1>Results : $count/20</h1>";
                         echo "<br>";
                         echo "<h2>Try Again to improve your score</h2>";
-                    } else if ($counter <= 15) {
-                        echo "<h1>Results : $counter/20</h1>";
+                    } else if ($count <= 15) {
+                        echo "<h1>Results : $count/20</h1>";
                         echo "<br>";
                         echo "<h2>AVERAGE:try again to improve.</h2>";
                     } else {
-                        echo "<h1>Results : $counter/20</h1>";
+                        echo "<h1>Results : $count/20</h1>";
                         echo "<h2>Excellent Score</h2>";
                     }
                 }
